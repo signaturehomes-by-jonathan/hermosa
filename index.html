@@ -7,11 +7,11 @@
 <meta name="description" content="Hermosa by Crown Asia, Las Piñas City. Ready-for-occupancy 1-bedroom units from ₱10.2M and studios from ₱4.6M, near Vista Mall Global South. Get your sample computation from Jonathan Rebullo, Country Manager under Vistaland.">
 <meta property="og:title" content="Hermosa Las Piñas: move-in ready 1-bedroom and studios">
 <meta property="og:description" content="Ready-for-occupancy condos near Vista Mall Global South, about 10 minutes from NAIA. Get your sample computation.">
-<meta property="og:image" content="https://signaturehomes-by-jonathan.github.io/hermosa/images/luarca-actual.jpg">
+<meta property="og:image" content="https://hermosa.rebullojonathan.com/images/luarca-actual.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="1077">
-<meta property="og:url" content="https://signaturehomes-by-jonathan.github.io/hermosa/">
-<link rel="canonical" href="https://signaturehomes-by-jonathan.github.io/hermosa/">
+<meta property="og:url" content="https://hermosa.rebullojonathan.com/">
+<link rel="canonical" href="https://hermosa.rebullojonathan.com/">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23172D2A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%23C9A45C'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,6 +169,13 @@
   .cmp-row{padding:2px 0 10px;font-size:clamp(13px,3.9vw,15px);font-weight:600}
   .cmp-row span{padding:0 6px}
   .cmp-row small{display:block;font-size:11.5px;font-weight:400;color:var(--muted)}
+  /* Vertical divider so the two units (left vs right) are clearly separated */
+  .cmp-row>span+span{border-left:2px solid var(--line)}
+  .cmp-row.hl>span+span{border-left-color:#d9ccb0}
+  .cmp-head>span+span{border-left:2px solid rgba(201,164,92,.45)}
+  .cmp-head>span{padding:12px 6px}
+  .cmp-row{padding:0}
+  .cmp-row>span{padding:4px 6px 12px}
   .cmp-row.hl{background:var(--sand)}
   .cmp-row.hl span{color:var(--deep)}
   .cmp-group{background:var(--cream);font-family:var(--serif);font-size:20px;font-weight:600;color:var(--deep);padding:10px 12px;border-top:1px solid var(--line)}
@@ -190,6 +197,13 @@
   .steps li.total{background:var(--sand);margin:0 -10px;padding:10px;border-radius:8px;border-top:0}
   .steps li.total b{color:var(--deep)}
   .green{color:#2f6b3a}
+  /* Discount badges: hidden automatically by the stale-date script once the price list expires */
+  .disc{display:inline-block;background:#C0392B;color:#fff;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;vertical-align:middle;margin-left:6px;white-space:nowrap}
+  .disc.soft{background:#FBE3DF;color:#9B2C20}
+  .pay-summary .disc{color:#fff;font-size:11.5px}
+  .disc[hidden]{display:none}
+  .save-line{display:block;font-size:12px;font-weight:600;color:#9B2C20;margin-top:2px}
+  .save-line[hidden]{display:none}
   .sample-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:16px}
   .sample-card h3{font-family:var(--serif);font-size:22px;color:var(--deep);font-weight:600;line-height:1.2}
 
@@ -282,6 +296,109 @@
   footer p+p{margin-top:9px}
   footer strong{color:#e3ebe8}
 
+  /* ===== At a glance: RFO vs pre-selling chooser ===== */
+  .glance{background:var(--paper);padding:40px 0;border-bottom:1px solid var(--line)}
+  .glance-grid{display:grid;gap:14px;margin-top:18px}
+  @media(min-width:760px){.glance-grid{grid-template-columns:1fr 1fr}}
+  .path{border:1px solid var(--line);border-top:5px solid var(--c);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;background:#fff}
+  .path.rfo{--c:#2E7D5B}
+  .path.ps{--c:var(--gold)}
+  .path-tag{display:inline-block;align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--c);color:#fff}
+  .path.ps .path-tag{color:var(--deep)}
+  .path h3{font-family:var(--serif);font-size:26px;color:var(--deep);font-weight:600;margin:8px 0 2px;line-height:1.1}
+  .path .lead{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+  .path table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
+  .path th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;text-align:left;padding:6px 4px}
+  .path td{padding:9px 4px;border-top:1px solid var(--line);vertical-align:top}
+  .path td small{display:block;color:var(--muted);font-size:12px}
+  .path td.num{text-align:right;white-space:nowrap;font-weight:600;color:var(--deep)}
+  .path .asof{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .path .btn{margin-top:auto;width:100%}
+  .path.rfo .btn{background:#2E7D5B;color:#fff}
+  .path.rfo .btn:hover{background:#276b4e}
+  /* Zone labels: make it obvious which part of the page the visitor is in */
+  .zone{padding:14px 0;color:#fff;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+  .zone.rfo{background:#2E7D5B}
+  .zone.ps{background:var(--gold);color:var(--deep)}
+  .zone .wrap{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .zone a{font-size:12px;letter-spacing:.06em;text-transform:none;font-weight:500;opacity:.9}
+  .bldg-head{font-family:var(--serif);font-size:24px;color:var(--deep);font-weight:600;margin-top:34px}
+
+  /* ===== LRT-1 mini map (hand-built, no third-party graphics) ===== */
+  .rail{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px 18px 18px;position:relative;overflow:hidden}
+  .rail::before{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--sand);opacity:.6}
+  .rail-head{position:relative;display:flex;align-items:center;gap:10px}
+  .rail-badge{width:42px;height:42px;border-radius:14px;background:var(--deep);color:var(--gold);display:grid;place-items:center;font-size:22px;flex:none}
+  .rail h3{font-family:var(--serif);font-size:24px;color:var(--deep);font-weight:600;line-height:1.1}
+  .rail-sub{font-size:13px;color:var(--muted)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 6px;font-size:12.5px;color:var(--muted)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  .legend .lo{background:#2E7D5B}
+  .legend .lf{background:#fff;border:2.5px dashed var(--gold)}
+  .rail-track{position:relative;margin:12px 0 0 22px}
+  .stations{list-style:none;position:relative;padding-left:30px}
+  .stations li{position:relative;padding:7px 0;font-size:15px;color:var(--ink);min-height:34px}
+  /* the line: solid green for open stations, dashed gold for future ones */
+  .stations li::after{content:"";position:absolute;left:-21px;top:0;bottom:0;border-left:5px solid #2E7D5B}
+  .stations li:first-child::after{top:50%}
+  .stations li.future::after{border-left:4px dashed var(--gold);left:-20.5px}
+  .stations li:last-child::after{bottom:50%}
+  .stations li::before{content:"";position:absolute;left:-27px;top:50%;width:17px;height:17px;margin-top:-8.5px;border-radius:50%;background:#fff;border:4px solid #2E7D5B;z-index:1;box-sizing:border-box}
+  .stations li.future::before{border:3px dashed var(--gold)}
+  .stations li.more{color:var(--muted);font-size:13px;font-style:italic}
+  .stations li.more::before{width:9px;height:9px;margin-top:-4.5px;left:-23px;border-width:0;background:#2E7D5B}
+  .st-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
+  .st-tag.open{background:#E3F1EA;color:#22603F}
+  .st-tag.soon{background:#FBF1DC;color:var(--gold-ink)}
+  .stations li.home{margin:8px 0;padding:0}
+  .home-card{display:flex;align-items:center;gap:10px;background:var(--deep);color:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 8px 20px rgba(23,45,42,.18)}
+  .home-card .pin{font-size:26px;animation:bob 2.2s ease-in-out infinite}
+  .home-card b{display:block;font-family:var(--serif);font-size:20px;color:var(--gold);font-weight:600;line-height:1.1}
+  .home-card span{font-size:12.5px;color:#d7e0dd}
+  .stations li.home::before{width:22px;height:22px;margin-top:-11px;left:-29.5px;border:5px solid var(--gold);background:var(--deep)}
+  .train{position:absolute;left:-24px;font-size:20px;z-index:2;animation:ride 6s ease-in-out infinite;top:0}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes ride{0%{top:-4px}70%,100%{top:var(--ride-end,200px)}}
+  @media (prefers-reduced-motion: reduce){.home-card .pin,.train{animation:none}}
+  .rail-note{font-size:11.5px;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+  @media(min-width:860px){.rail{padding:28px 30px}}
+
+  /* ===== Sample computation toggle: big, gold, "Click me" (overrides the quieter style above) ===== */
+  .pay-details summary{position:relative;flex-direction:column;gap:2px;min-height:76px;padding:18px 20px 14px;margin-top:10px;background:var(--gold);color:var(--deep);border:2px solid var(--deep);border-radius:18px;box-shadow:0 6px 0 var(--deep);animation:ctaPulse 1.8s ease-in-out infinite}
+  .pay-details summary::after{content:none}
+  .pay-details summary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--deep)}
+  .cta-pill{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#C0392B;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+  .cta-pill .tap{display:inline-block;animation:tap 1s ease-in-out infinite}
+  .cta-main{font-size:17px;font-weight:700;line-height:1.2}
+  .cta-sub{font-size:12.5px;font-weight:500;opacity:.85}
+  .cta-open{display:none}
+  .pay-details[open] summary{background:var(--deep);color:#fff;box-shadow:none;animation:none;min-height:52px;padding:12px 16px}
+  .pay-details[open] .cta-pill,.pay-details[open] .cta-closed{display:none}
+  .pay-details[open] .cta-open{display:block;font-size:15px;font-weight:600}
+  @keyframes ctaPulse{0%,100%{box-shadow:0 6px 0 var(--deep),0 0 0 0 rgba(201,164,92,.7)}50%{box-shadow:0 6px 0 var(--deep),0 0 0 10px rgba(201,164,92,0)}}
+  @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @media (prefers-reduced-motion: reduce){.cta-pill .tap{animation:none}}
+
+  /* ===== Booking button on phones: lives in the bottom bar, not floating over content ===== */
+  @media(max-width:859px){
+    .book-float{display:none}
+    /* Quick-contact bar pinned to the TOP, four equal-width buttons */
+    body .actionbar{top:0;bottom:auto;grid-template-columns:repeat(4,1fr);border-top:0;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.10)}
+    body .actionbar a{font-size:12px;font-weight:600;padding:0 2px;min-height:44px;white-space:nowrap;line-height:1.1}
+    body .actionbar a+a{border-left:1px solid var(--line)}
+    body .actionbar a.book{background:var(--deep);color:#fff;border-left-color:var(--deep)}
+    body .actionbar a.primary{border-left-color:var(--gold)}
+    body{padding-bottom:0;padding-top:44px}
+    html{scroll-padding-top:52px}
+  }
+
+  /* ===== Booking cards: audience badges (fixed colors, readable on every theme) ===== */
+  .aud{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:7px 14px;border-radius:999px;margin-bottom:6px;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+  .aud.ofw{background:#1F5FAD}
+  .aud.ph{background:#B03A2E}
+  .book-card.ofw-card{border-top:5px solid #1F5FAD}
+  .book-card.ph-card{border-top:5px solid #B03A2E}
+
   /* ===== Sticky mobile action bar ===== */
   .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr 1.4fr;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08)}
   .actionbar a{display:flex;align-items:center;justify-content:center;padding:15px 6px;font-size:14px;font-weight:600;text-decoration:none;color:var(--deep);min-height:48px}
@@ -306,10 +423,10 @@
         <h1>Move in now at Hermosa</h1>
         <p class="sub">1-bedroom from <b>₱10.2M</b> · studios from <b>₱4.6M</b> · near Vista Mall Global South</p>
         <!-- 19 Luarca (Nov 13, 2026 list) + 2 Barcelona + 7 Sevilla (Nov 12, 2026 list) = 28 -->
-        <p class="remaining">28 ready-for-occupancy residences available <span>· as of Nov 13, 2026</span></p>
+        <p class="remaining">28 ready-for-occupancy + 23 pre-selling units available <span>· as of Nov 13, 2026 (pre-selling: Oct 21, 2026)</span></p>
         <div class="ctas">
           <a class="btn" href="#inquire">Request a private presentation</a>
-          <a class="btn btn-outline" href="#prices">See unit prices</a>
+          <a class="btn btn-outline" href="#glance">See RFO &amp; pre-selling</a>
         </div>
       </div>
       <div class="hero-img">
@@ -320,6 +437,47 @@
   </div>
 </header>
 
+<!-- ===================== AT A GLANCE: RFO vs PRE-SELLING =====================
+     Starting list prices and unit counts copied from the official price lists
+     (RFO: Nov 12-13, 2026 · Las Palmas: Oct 21, 2026). Update these together
+     with the detailed sections below. -->
+<section class="glance" id="glance">
+  <div class="wrap">
+    <div class="kicker">Hermosa at a glance</div>
+    <h2>Two ways to own at Hermosa</h2>
+    <p class="muted">Want to move in soon, or prefer a longer payment term? Pick one to see the units.</p>
+    <div class="glance-grid">
+      <div class="path rfo" data-asof="2026-11-12">
+        <span class="path-tag">✅ Ready for occupancy (RFO)</span>
+        <h3>Move in now</h3>
+        <p class="lead">Completed buildings · 28 units available</p>
+        <table>
+          <tr><th>Building</th><th style="text-align:right">From</th></tr>
+          <tr><td>Luarca Tower<small>1 BR with balcony, 1 BR Prime · 19 units</small></td><td class="num">₱10,236,000</td></tr>
+          <tr><td>Sevilla Bldg<small>Studio · 7 units</small></td><td class="num">₱5,803,000</td></tr>
+          <tr><td>Barcelona Bldg<small>Studio with balcony · 2 units</small></td><td class="num">₱4,635,000</td></tr>
+        </table>
+        <p class="asof">Official price lists as of Nov 12–13, 2026</p>
+        <a class="btn" href="#rfo-zone">See RFO units</a>
+      </div>
+      <div class="path ps" data-asof="2026-10-21">
+        <span class="path-tag">🏗️ Pre-selling</span>
+        <h3>Pay longer, pay lighter</h3>
+        <p class="lead">Las Palmas Tower · downpayment over 48 months · 23 units</p>
+        <table>
+          <tr><th>Unit type</th><th style="text-align:right">From</th></tr>
+          <tr><td>Studio<small>23.76 sqm · 9 units</small></td><td class="num">₱6,273,000</td></tr>
+          <tr><td>1 Bedroom<small>34.57 sqm · 3 units</small></td><td class="num">₱9,234,000</td></tr>
+          <tr><td>1 BR with balcony<small>41.65 sqm · 3 units</small></td><td class="num">₱11,177,000</td></tr>
+          <tr><td>2 BR with balcony<small>51.88 sqm · 8 units</small></td><td class="num">₱13,697,000</td></tr>
+        </table>
+        <p class="asof">Official price list as of Oct 21, 2026</p>
+        <a class="btn" href="#ps-zone">See pre-selling units</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PROMO TEASER (no prices or deadlines on purpose) ===================== -->
 <div class="teaser">
   <div class="wrap">
@@ -327,6 +485,9 @@
     <a class="btn btn-dark" href="https://wa.me/639431301792?text=Hi%20Jonathan%2C%20what%20are%20this%20month%27s%20Hermosa%20promos%3F" target="_blank" rel="noopener">Ask about this month's promos</a>
   </div>
 </div>
+
+<!-- ===================== ZONE LABEL: RFO ===================== -->
+<div class="zone rfo" id="rfo-zone"><div class="wrap"><span>Part 1 · Ready for occupancy</span><a href="#ps-zone">Jump to pre-selling ↓</a></div></div>
 
 <!-- ===================== FEATURED: LUARCA 1 BEDROOM ===================== -->
 <section class="featured" id="featured" data-asof="2026-11-12">
@@ -448,6 +609,26 @@
         <a class="btn" style="margin-top:16px" href="#inquire">Help me choose</a>
       </div>
     </div>
+
+    <!-- Building details (moved here from "Why Hermosa" so visitors read them next to the prices) -->
+    <h3 class="bldg-head">Get to know the RFO buildings</h3>
+    <div class="towers">
+      <div class="tower">
+        <span class="tag">Ready for occupancy</span>
+        <h3>Luarca Tower</h3>
+        <ul><li>12 floors · 253 units</li><li>2 elevators · 2 staircases</li><li>Parking ratio 1:4</li><li>Units A–M: sunset view · N–W: amenity, sunrise view</li></ul>
+      </div>
+      <div class="tower">
+        <span class="tag">Ready for occupancy</span>
+        <h3>Barcelona &amp; Castellon</h3>
+        <ul><li>Low-rise, low-density, 4 floors</li><li>80 units per building</li><li>Completed 2018</li><li>Units 1–10: sunrise view · 11–20: sunset view</li></ul>
+      </div>
+      <div class="tower">
+        <span class="tag">Ready for occupancy</span>
+        <h3>Sevilla Tower</h3>
+        <ul><li>7 floors · 140 units</li><li>1 passenger elevator</li><li>Completed 2018</li><li>Units A–J: sunrise view · K–T: sunset view</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -458,30 +639,30 @@
     <div class="kicker">Payment options · ready for occupancy</div>
     <h2>Two ways to pay</h2>
     <ul class="pay-summary">
-      <li><b>Spot cash</b><span class="promo-only">Pay 40% of the list price within 7 days (60% off). Longer deadlines available, ask me.</span></li>
-      <li><b>Regular terms</b><span class="promo-only">30% off. Only 2% down over 4 months, 90% through bank financing or lump sum.</span></li>
+      <li><b>Spot cash <span class="disc">60% OFF</span></b><span class="promo-only">Pay 40% of the list price within 7 days (60% off). Longer deadlines available, ask me.</span></li>
+      <li><b>Regular terms <span class="disc">30% OFF</span></b><span class="promo-only">30% off. Only 2% down over 4 months, 90% through bank financing or lump sum.</span></li>
     </ul>
 
     <details class="pay-details">
-      <summary>See the full sample computation</summary>
+      <summary><span class="cta-pill"><span class="tap">👆</span> Click me</span><span class="cta-main cta-closed">See the full sample computation</span><span class="cta-sub cta-closed">Monthly amounts and discounts, step by step</span><span class="cta-open">▲ Hide the computation</span></summary>
       <p class="muted" style="margin-top:14px">Sample computations from the official sheets dated November 13, 2026. The reservation fee is already deducted where shown.</p>
       <div class="cmp">
         <div class="cmp-head"><span>Luarca 1 BR<small>02F-000E · ₱10,236,000</small></span><span>Sevilla Studio<small>03F-000F · ₱5,803,000</small></span></div>
 
-        <div class="cmp-group">Option 1 · Spot cash</div>
+        <div class="cmp-group">Option 1 · Spot cash <span class="disc">60% OFF</span></div>
         <div class="cmp-label">Price after 60% discount</div>
-        <div class="cmp-row promo-row"><span class="promo-only">₱4,094,400</span><span class="promo-only">₱2,321,200</span></div>
+        <div class="cmp-row promo-row"><span><span class="promo-only">₱4,094,400</span><span class="save-line">You save ₱6,141,600</span></span><span><span class="promo-only">₱2,321,200</span><span class="save-line">You save ₱3,481,800</span></span></div>
         <div class="cmp-label">On reservation</div>
         <div class="cmp-row"><span>₱50,000</span><span>₱30,000</span></div>
         <div class="cmp-label">Balance within 7 days</div>
         <div class="cmp-row hl"><span class="promo-only">₱4,044,400</span><span class="promo-only">₱2,291,200</span></div>
 
-        <div class="cmp-group">Option 2 · Regular terms</div>
+        <div class="cmp-group">Option 2 · Regular terms <span class="disc">30% OFF</span> <span class="disc soft">+8% on loan release</span></div>
         <div class="cmp-label">Price after 30% discount</div>
-        <div class="cmp-row"><span class="promo-only">₱7,165,200</span><span class="promo-only">₱4,062,100</span></div>
+        <div class="cmp-row"><span><span class="promo-only">₱7,165,200</span><span class="save-line">You save ₱3,070,800</span></span><span><span class="promo-only">₱4,062,100</span><span class="save-line">You save ₱1,740,900</span></span></div>
         <div class="cmp-label">2% down, monthly for 4 months</div>
         <div class="cmp-row hl"><span class="promo-only">₱23,326</span><span class="promo-only">₱12,811</span></div>
-        <div class="cmp-label">8% discount upon loan release</div>
+        <div class="cmp-label">8% discount upon loan release <span class="disc soft">8% OFF</span></div>
         <div class="cmp-row"><span class="promo-only">₱573,216</span><span class="promo-only">₱324,968</span></div>
         <div class="cmp-label">90% balance (bank or lump sum)</div>
         <div class="cmp-row"><span class="promo-only">₱6,448,680</span><span class="promo-only">₱3,655,890</span></div>
@@ -494,11 +675,14 @@
   </div>
 </section>
 
+<!-- ===================== ZONE LABEL: PRE-SELLING ===================== -->
+<div class="zone ps" id="ps-zone"><div class="wrap"><span>Part 2 · Pre-selling</span><a href="#rfo-zone">Back to RFO ↑</a></div></div>
+
 <!-- ===================== PRE-SELLING: LAS PALMAS ===================== -->
 <section class="presell" id="preselling" data-asof="2026-10-21">
   <div class="wrap">
     <div class="stale" hidden>The Las Palmas figures below are from an older price list. Message me for today's prices.</div>
-    <div class="kicker">Pre-selling also available · price list as of Oct 21, 2026</div>
+    <div class="kicker">Pre-selling · Las Palmas Tower · price list as of Oct 21, 2026</div>
     <h2>Las Palmas Tower: pay longer, pay lighter</h2>
     <div class="ps-grid">
       <div>
@@ -520,8 +704,8 @@
         <h3>Las Palmas Studio, 03F-0014</h3>
         <p class="small muted">List price ₱6,273,000 · reservation fee ₱30,000</p>
         <ol class="steps">
-          <li><span>Spot cash within 30 days<small>40% off, total incl. reservation fee</small></span><b class="green promo-only">₱3,763,800</b></li>
-          <li class="total"><span>15% down over 48 months<small>with 5% discount, net of reservation fee</small></span><b class="promo-only">₱17,998<small>per month</small></b></li>
+          <li><span>Spot cash within 30 days <span class="disc">40% OFF</span><small>total incl. reservation fee</small></span><b><span class="green promo-only">₱3,763,800</span><span class="save-line">You save ₱2,509,200</span></b></li>
+          <li class="total"><span>15% down over 48 months <span class="disc">5% OFF</span><small>5% off the list price, net of reservation fee</small></span><b class="promo-only">₱17,998<small>per month</small></b></li>
           <li><span>Step-up 15% down over 48 months<small>no discount; starts low, increases yearly</small></span><b class="promo-only">₱10,569 → ₱26,138<small>per month</small></b></li>
           <li><span>85% balance after 48 months<small>bank or in-house financing, step-up option</small></span><b class="promo-only">₱5,332,050</b></li>
           <li><span>Indicative bank amortization<small>15 years at 7.5%</small></span><b class="promo-only">₱49,429<small>per month</small></b></li>
@@ -553,23 +737,42 @@
       </div>
     </div>
   </div>
+
+  <!-- ===================== LRT-1 MINI MAP =====================
+       Status checked Nov 16, 2026: Phase 1 (Baclaran to Dr. Santos) open since Nov 2024.
+       Las Piñas station right-of-way acquired Sep 2026; construction expected as early as 2027
+       (DOTr statements reported by Daily Tribune, Aug–Sep 2026). Update when status changes. -->
   <div class="wrap">
-    <div class="towers">
-      <div class="tower">
-        <span class="tag">Ready for occupancy</span>
-        <h3>Luarca Tower</h3>
-        <ul><li>12 floors · 253 units</li><li>2 elevators · 2 staircases</li><li>Parking ratio 1:4</li><li>Units A–M: sunset view · N–W: amenity, sunrise view</li></ul>
+    <div class="rail">
+      <div class="rail-head">
+        <div class="rail-badge" aria-hidden="true">🚆</div>
+        <div>
+          <h3>Getting here by LRT-1</h3>
+          <div class="rail-sub">The Cavite Extension is heading toward Hermosa</div>
+        </div>
       </div>
-      <div class="tower">
-        <span class="tag">Ready for occupancy</span>
-        <h3>Barcelona &amp; Castellon</h3>
-        <ul><li>Low-rise, low-density, 4 floors</li><li>80 units per building</li><li>Completed 2018</li><li>Units 1–10: sunrise view · 11–20: sunset view</li></ul>
+      <div class="legend"><span><i class="lo"></i>Open now</span><span><i class="lf"></i>Future station</span></div>
+      <div class="rail-track">
+      <span class="train" aria-hidden="true">🚃</span>
+      <ul class="stations">
+        <li class="more">from Fernando Poe Jr. Station (Quezon City)</li>
+        <li>Baclaran</li>
+        <li>Redemptorist–ASEANA</li>
+        <li>MIA Road</li>
+        <li>PITX</li>
+        <li>Ninoy Aquino Avenue</li>
+        <li class="last-open">Dr. Santos <span class="st-tag open">End of line today</span></li>
+        <li class="future home">
+          <div class="home-card">
+            <span class="pin" aria-hidden="true">📍</span>
+            <div><b>Hermosa</b><span>Near the future Las Piñas Station</span></div>
+          </div>
+        </li>
+        <li class="future">Zapote <span class="st-tag soon">Future</span></li>
+        <li class="future">Niog, Bacoor <span class="st-tag soon">Future</span></li>
+      </ul>
       </div>
-      <div class="tower">
-        <span class="tag">Ready for occupancy</span>
-        <h3>Sevilla Tower</h3>
-        <ul><li>7 floors · 140 units</li><li>1 passenger elevator</li><li>Completed 2018</li><li>Units A–J: sunrise view · K–T: sunset view</li></ul>
-      </div>
+      <p class="rail-note">Las Piñas, Zapote and Niog stations are not yet built. DOTr secured the Las Piñas station site in September 2026, with construction expected to start as early as 2027. Status as of November 2026; timelines are set by the government and may change.</p>
     </div>
   </div>
 </section>
@@ -612,8 +815,8 @@
     <h2>Pick a time that works for you</h2>
     <p class="muted">Choose the option that fits where you are now. You'll get a confirmation by email right after booking.</p>
     <div class="book-grid">
-      <div class="book-card">
-        <div class="kicker">Abroad or OFW</div>
+      <div class="book-card ofw-card">
+        <div class="aud ofw">✈️ Abroad or OFW</div>
         <h3>Online presentation</h3>
         <ul>
           <li>One-on-one via Google Meet, 45 minutes</li>
@@ -622,8 +825,8 @@
         </ul>
         <a class="btn btn-dark" href="https://cal.com/jonathanrebullo-homes/hermosa-presentation" target="_blank" rel="noopener" data-contact="cal-online">Book an online presentation</a>
       </div>
-      <div class="book-card">
-        <div class="kicker">In the Philippines</div>
+      <div class="book-card ph-card">
+        <div class="aud ph">📍 In the Philippines</div>
         <h3>Site viewing in Las Piñas</h3>
         <ul>
           <li>Visit Hermosa and see the ready-for-occupancy towers</li>
@@ -839,7 +1042,8 @@
 <nav class="actionbar" aria-label="Quick contact">
   <a href="https://wa.me/639431301792" target="_blank" rel="noopener">WhatsApp</a>
   <a href="https://m.me/Jtanrebullo" target="_blank" rel="noopener" data-contact="messenger">Messenger</a>
-  <a class="primary" href="#inquire">Send inquiry</a>
+  <a class="book" href="#book">📅 Book</a>
+  <a class="primary" href="#inquire">Inquire</a>
 </nav>
 
 <script>
@@ -877,8 +1081,18 @@ const CONFIG = {
     if (now > limit) {
       section.querySelectorAll(".promo-only").forEach(el => { el.textContent = "Ask me for the latest terms"; });
       section.querySelectorAll(".stale").forEach(el => { el.hidden = false; });
+      section.querySelectorAll(".disc, .save-line").forEach(el => { el.hidden = true; });
     }
   });
+})();
+
+/* LRT mini map: the little train rides down to Dr. Santos (last open station) and stops there. */
+(function () {
+  const list = document.querySelector(".rail-track");
+  const stop = list && list.querySelector(".last-open");
+  if (!stop) return;
+  const set = () => list.style.setProperty("--ride-end", (stop.offsetTop + stop.offsetHeight / 2 - 12) + "px");
+  set(); window.addEventListener("resize", set);
 })();
 
 /* Flip unit cards between price (front) and floor plan (back). */
